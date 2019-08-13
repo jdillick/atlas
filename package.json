@@ -1,0 +1,11 @@
+{
+  "name": "atlas",
+  "version": "0.0.1",
+  "description": "Atlas API",
+  "main": "index.js",
+  "author": "John Dillick <john@dillick.us>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
