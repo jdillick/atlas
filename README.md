@@ -58,8 +58,21 @@ atlas.root
     .then(groupId => {
         // projectIp API
 
+        // Get all project IP whitelist entries
+        atlas.projectIp
+            .all(groupId)
+            .then(({ data }) => console.log({ whitelist: data }))
+            .catch(error => console.error({ error }));
+
+        // Get all project IP whitelist entries
+        // page 2 (default 1), number of results 500 (max limit 500)
+        atlas.projectIp
+            .all(groupId, { pageNum: 2, itemsPerPage: 500 })
+            .then(({ data }) => console.log({ whitelist: data }))
+            .catch(error => console.error({ error }));
+
         // Use to create or update list of whitelist entries
-        // by cidrBlock or IP Address
+        // by cidrBlock or IP Address (not both)
         atlas.projectIp
             .create(groupId, [
                 {
@@ -74,11 +87,21 @@ atlas.root
             .then(({ data }) => console.log({ whitelist: data }))
             .catch(error => console.error(error));
 
+        // Delete a whitelist entry by ip address or cidr
+        atlas.projectIp.delete(groupId, ipOrCidr).then(() => console.log('Success!'))
+            .catch(error => console.error(error))
+
         // customRoles API
 
         // get all custom roles
         atlas.customRoles
             .all(groupId)
+            .then(({ data }) => console.log({ roles: data }))
+            .catch(error => console.error({ error }));
+
+        // get all custom roles, page 2 (default 1), 10 results per page (maximum 500)
+        atlas.customRoles
+            .all(groupId, { pageNum: 2, itemsPerPage: 10 })
             .then(({ data }) => console.log({ roles: data }))
             .catch(error => console.error({ error }));
 
@@ -231,6 +254,13 @@ atlas.root
         // get all users
         atlas.dbUsers
             .all(groupId)
+            .then(({ data }) => console.log({ users: data }))
+            .catch(error => console.error({ error }));
+
+        // get all users
+        // page 2 (default 1), 500 results per page (max limit 500)
+        atlas.dbUsers
+            .all(groupId, { pageNum: 2, itemsPerPage = 500})
             .then(({ data }) => console.log({ users: data }))
             .catch(error => console.error({ error }));
 
