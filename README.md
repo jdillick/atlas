@@ -1,6 +1,10 @@
-# API Keys
+# MongoDB Atlas API
 
-> With environment variables
+This library seeks to implement a small subset of the [MongoDB Atlas API](https://docs.atlas.mongodb.com/reference/api-resources/).
+
+## API Keys
+
+> With environment variables (recommended)
 
 ```bash
 export ATLAS_PUBLIC_KEY="<your atlas public key>"
