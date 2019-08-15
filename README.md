@@ -42,7 +42,7 @@ but let me know if you wish an API fleshed out some.
 > Using the API
 
 ```js
-const atlas = require('./index')();
+const atlas = require('@atomic-reactor/atlas')();
 
 // apiKeys API
 atlas.root
