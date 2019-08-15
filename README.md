@@ -33,6 +33,7 @@ Current, this library only supports:
 -   Getting the roles (groupId) associated with your api key
 -   create, retrieve, update, and delete custom roles
 -   create, retrieve, update, and delete db users
+-   create/update, retrieve, and delete project IP whitelist entries
 
 This is generally enough to be able to interact with your cluster meaningfully,
 but let me know if you wish an API fleshed out some.
@@ -55,6 +56,24 @@ atlas.root
         return groupId;
     })
     .then(groupId => {
+        // projectIp API
+
+        // Use to create or update list of whitelist entries
+        // by cidrBlock or IP Address
+        atlas.projectIp
+            .create(groupId, [
+                {
+                    cidrBlock: '167.99.160.1/20',
+                    comment: 'my wan',
+                },
+                {
+                    ipAddress: '167.99.162.12',
+                    comment: 'server1',
+                },
+            ])
+            .then(({ data }) => console.log({ whitelist: data }))
+            .catch(error => console.error(error));
+
         // customRoles API
 
         // get all custom roles
