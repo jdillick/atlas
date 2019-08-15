@@ -1,6 +1,6 @@
 {
     "name": "@atomic-reactor/atlas",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "MongoDB Atlas API",
     "main": "index.js",
     "author": "John Dillick <john@dillick.us>",
@@ -22,6 +22,10 @@
         "lint-staged": "^9.2.1",
         "prettier": "^1.18.2"
     },
+    "keywords": [
+        "mongodb",
+        "atlas"
+    ],
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
