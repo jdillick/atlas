@@ -1,0 +1,74 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/dbUser.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": ["databaseName", "groupId", "roles", "username", "password"],
+    "properties": {
+        "databaseName": {
+            "$id": "#/properties/databaseName",
+            "type": "string",
+            "title": "The Databasename Schema",
+            "const": "admin"
+        },
+        "ldapAuthType": {
+            "$id": "#/properties/ldapAuthType",
+            "type": "string",
+            "title": "The LDAPAuthType Schema",
+            "default": "NONE",
+            "enum": ["NONE", "USER", "GROUP"],
+            "pattern": "^(.*)$"
+        },
+        "groupId": {
+            "$id": "#/properties/groupId",
+            "type": "string",
+            "title": "The Groupid Schema",
+            "default": "",
+            "examples": ["5d51dca8014b760fbb3585eb"],
+            "pattern": "^(.*)$"
+        },
+        "roles": {
+            "$id": "#/properties/roles",
+            "type": "array",
+            "minItems": 1,
+            "title": "The Roles Schema",
+            "items": {
+                "$id": "#/properties/roles/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": ["databaseName", "roleName"],
+                "properties": {
+                    "databaseName": {
+                        "$id": "#/properties/roles/items/properties/databaseName",
+                        "type": "string",
+                        "title": "The Databasename Schema",
+                        "const": "admin",
+                        "pattern": "^(.*)$"
+                    },
+                    "roleName": {
+                        "$id": "#/properties/roles/items/properties/roleName",
+                        "type": "string",
+                        "title": "The Rolename Schema",
+                        "default": "",
+                        "pattern": "^(.*)$"
+                    }
+                }
+            }
+        },
+        "username": {
+            "$id": "#/properties/username",
+            "type": "string",
+            "title": "The Username Schema",
+            "default": "",
+            "pattern": "^(.*)$"
+        },
+        "password": {
+            "$id": "#/properties/password",
+            "type": "string",
+            "title": "The Password Schema",
+            "default": "",
+            "pattern": "^(.*)$"
+        }
+    }
+}
