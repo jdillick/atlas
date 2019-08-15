@@ -1,0 +1,128 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/customRole.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": ["actions", "inheritedRoles", "roleName"],
+    "properties": {
+        "actions": {
+            "$id": "#/properties/actions",
+            "type": "array",
+            "title": "The Actions Schema",
+            "items": {
+                "$id": "#/properties/actions/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": ["action", "resources"],
+                "properties": {
+                    "action": {
+                        "$id": "#/properties/actions/items/properties/action",
+                        "type": "string",
+                        "title": "The Action Schema",
+                        "default": "",
+                        "enum": [
+                            "FIND",
+                            "INSERT",
+                            "REMOVE",
+                            "UPDATE",
+                            "BYPASS_DOCUMENT_VALIDATION",
+                            "USE_UUID",
+                            "CREATE_COLLECTION",
+                            "CREATE_INDEX",
+                            "DROP_COLLECTION",
+                            "ENABLE_PROFILER",
+                            "CHANGE_STREAM",
+                            "COLL_MOD",
+                            "COMPACT",
+                            "CONVERT_TO_CAPPED",
+                            "DROP_DATABASE",
+                            "DROP_INDEX",
+                            "RE_INDEX",
+                            "RENAME_COLLECTION_SAME_DB",
+                            "LIST_SESSIONS",
+                            "KILL_ANY_SESSION",
+                            "COLL_STATS",
+                            "CONN_POOL_STATS",
+                            "DB_HASH",
+                            "DB_STATS",
+                            "LIST_DATABASES",
+                            "LIST_COLLECTIONS",
+                            "LIST_INDEXES",
+                            "SERVER_STATUS",
+                            "VALIDATE",
+                            "TOP"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "resources": {
+                        "$id": "#/properties/actions/items/properties/resources",
+                        "type": "array",
+                        "title": "The Resources Schema",
+                        "items": {
+                            "$id": "#/properties/actions/items/properties/resources/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": ["collection", "db"],
+                            "properties": {
+                                "collection": {
+                                    "$id": "#/properties/actions/items/properties/resources/items/properties/collection",
+                                    "type": "string",
+                                    "title": "The Collection Schema",
+                                    "default": "",
+                                    "examples": [""],
+                                    "pattern": "^(.*)$"
+                                },
+                                "db": {
+                                    "$id": "#/properties/actions/items/properties/resources/items/properties/db",
+                                    "type": "string",
+                                    "title": "The Db Schema",
+                                    "default": "",
+                                    "examples": ["testDatabase"],
+                                    "pattern": "^(.*)$"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "inheritedRoles": {
+            "$id": "#/properties/inheritedRoles",
+            "type": "array",
+            "title": "The Inheritedroles Schema",
+            "items": {
+                "$id": "#/properties/inheritedRoles/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": ["db", "role"],
+                "properties": {
+                    "db": {
+                        "$id": "#/properties/inheritedRoles/items/properties/db",
+                        "type": "string",
+                        "title": "The Db Schema",
+                        "default": "",
+                        "examples": ["testDatabase"],
+                        "pattern": "^(.*)$"
+                    },
+                    "role": {
+                        "$id": "#/properties/inheritedRoles/items/properties/role",
+                        "type": "string",
+                        "title": "The Role Schema",
+                        "default": "",
+                        "examples": ["read"],
+                        "pattern": "^(.*)$"
+                    }
+                }
+            }
+        },
+        "roleName": {
+            "$id": "#/properties/roleName",
+            "type": "string",
+            "title": "The Rolename Schema",
+            "default": "",
+            "examples": ["testRole"],
+            "pattern": "^(.*)$"
+        }
+    }
+}
