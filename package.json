@@ -1,6 +1,6 @@
 {
     "name": "@atomic-reactor/atlas",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "MongoDB Atlas API",
     "main": "index.js",
     "author": "John Dillick <john@dillick.us>",
